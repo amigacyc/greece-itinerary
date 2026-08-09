@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>希臘 14 天行程總覽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --whitewash: #F6F4EE;
+    --whitewash-deep: #EDEAE1;
+    --aegean-deep: #14243C;
+    --aegean: #2E4A6E;
+    --aegean-light: #5D7594;
+    --stone: #8A8578;
+    --olive-wood: #7A5A38;
+    --rule: #D6D1C4;
+    --highlight: #C4A672;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--whitewash);
+    color: var(--aegean-deep);
+    font-family: 'Inter', 'Noto Serif TC', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 80px 40px 120px;
+  }
+
+  /* Header */
+  header {
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 80px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 88px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--aegean-deep);
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--aegean-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 48px;
+  }
+
+  .greek-title {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(20px, 3vw, 26px);
+    color: var(--stone);
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .meta-value {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--aegean-deep);
+    line-height: 1.2;
+  }
+
+  .meta-value small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--aegean-light);
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Flight banner */
+  .flight-banner {
+    background: var(--whitewash-deep);
+    border-left: 2px solid var(--olive-wood);
+    padding: 24px 28px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .flight-leg {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .flight-leg.return { text-align: right; }
+
+  .flight-airport {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+  }
+
+  .flight-time {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    color: var(--aegean-deep);
+    font-weight: 500;
+  }
+
+  .flight-arrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: var(--olive-wood);
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .flight-arrow small {
+    font-size: 11px;
+    color: var(--aegean-light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Timeline */
+  .stops {
+    position: relative;
+  }
+
+  .stops::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    bottom: 20px;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .stop {
+    position: relative;
+    padding-left: 100px;
+    padding-bottom: 72px;
+    padding-top: 20px;
+  }
+
+  .stop:last-child { padding-bottom: 0; }
+
+  .stop-marker {
+    position: absolute;
+    left: 24px;
+    top: 20px;
+    width: 33px;
+    height: 33px;
+    background: var(--whitewash);
+    border: 1px solid var(--aegean);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--aegean);
+    z-index: 1;
+  }
+
+  .stop-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .stop-name {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 500;
+    color: var(--aegean-deep);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .stop-greek {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    color: var(--olive-wood);
+    letter-spacing: 0.02em;
+  }
+
+  .stop-dates {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .stop-nights {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--aegean);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .highlights {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  .highlights li {
+    padding: 18px 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* 換天:整條分隔線 */
+  .highlights li:has(.tag-day) {
+    border-top: 1px solid var(--rule);
+  }
+
+  /* 換時段但同一天:分隔線只在景點欄 */
+  .highlights li:has(.highlight-subtag):not(:has(.tag-day)) {
+    padding-top: 0;
+  }
+
+  .highlights li:has(.highlight-subtag):not(:has(.tag-day)) .highlight-content {
+    border-top: 1px solid var(--rule);
+    padding-top: 18px;
+  }
+
+  .highlights li:has(.highlight-subtag):not(:has(.tag-day)) .highlight-tag {
+    padding-top: 18px;
+  }
+
+  .highlights li:first-child {
+    border-top: none;
+  }
+
+  .highlight-tag {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--aegean);
+    min-width: 100px;
+    font-weight: 500;
+  }
+
+  .highlight-tag .tag-day {
+    display: block;
+    font-size: 10px;
+    color: var(--aegean-deep);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .highlight-tag .tag-date {
+    display: block;
+    color: var(--aegean-light);
+    font-weight: 400;
+    line-height: 1.4;
+    margin-top: 2px;
+  }
+
+  .highlight-tag .tag-route {
+    display: block;
+    color: var(--olive-wood);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-family: 'Fraunces', serif;
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  .highlight-subtag {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    margin-bottom: 6px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .highlight-content {
+    display: block;
+    color: var(--aegean-deep);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .highlight-content strong {
+    font-weight: 500;
+    color: var(--aegean-deep);
+  }
+
+  .highlight-content .note {
+    display: block;
+    font-size: 13px;
+    color: var(--aegean-light);
+    margin-top: 4px;
+  }
+
+  /* Transit between stops */
+  .transit {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .transit::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--olive-wood);
+  }
+
+  .transit-mode {
+    color: var(--olive-wood);
+    font-weight: 500;
+  }
+
+  .transit-detail {
+    color: var(--aegean-light);
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+
+  /* Accommodation box */
+  .accommodation {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--whitewash-deep);
+    border-left: 2px solid var(--olive-wood);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .accommodation-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    font-weight: 500;
+  }
+
+  .accommodation-place {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    color: var(--aegean-deep);
+    line-height: 1.4;
+  }
+
+  .accommodation-place small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--aegean-light);
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Meta notes list under stop */
+  .stop-notes {
+    margin-top: 4px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--aegean-light);
+    line-height: 1.55;
+  }
+
+  .stop-notes-title {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .stop-notes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .stop-notes li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+
+  .stop-notes li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--olive-wood);
+  }
+
+  /* Venue info line (opening hours, prices) */
+  .venue-info {
+    display: block;
+    margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 0.05em;
+  }
+
+  /* Transit block (flight / ferry / car) */
+  .transit-block {
+    background: var(--whitewash-deep);
+    border-left: 3px solid var(--olive-wood);
+    padding: 20px 24px;
+    margin: 4px 0;
+  }
+
+  .transit-block.flight { border-left-color: #B94A3B; }
+  .transit-block.ferry { border-left-color: #2B5F7A; }
+  .transit-block.car { border-left-color: #8B5E3C; }
+
+  .transit-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .transit-icon {
+    font-size: 16px;
+    line-height: 1;
+    padding-top: 3px;
+  }
+
+  .transit-title {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    color: var(--aegean-deep);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .transit-title small {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-style: normal;
+  }
+
+  .transit-timeline {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 8px 16px;
+    align-items: baseline;
+  }
+
+  .tl-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--olive-wood);
+    font-weight: 600;
+  }
+
+  .tl-action {
+    font-size: 14px;
+    color: var(--aegean-deep);
+    line-height: 1.5;
+  }
+
+  .tl-action strong {
+    color: var(--aegean-deep);
+    font-weight: 600;
+  }
+
+  /* Cost table */
+  .cost-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .cost-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .cost-table th,
+  .cost-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .cost-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    font-weight: 500;
+  }
+
+  .cost-table td {
+    color: var(--aegean-deep);
+  }
+
+  .cost-table .cost-amount {
+    font-family: 'JetBrains Mono', monospace;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .cost-table .cost-date {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--aegean-light);
+    white-space: nowrap;
+  }
+
+  .cost-table tfoot td {
+    font-weight: 600;
+    border-bottom: none;
+    padding-top: 16px;
+  }
+
+  /* Footer note */
+  .footnote {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  .footnote-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    margin-bottom: 16px;
+  }
+
+  .footnote p {
+    margin-bottom: 10px;
+  }
+
+  .footnote p:last-child { margin-bottom: 0; }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .container {
+      padding: 48px 24px 80px;
+    }
+
+    .stops::before {
+      left: 20px;
+    }
+
+    .stop {
+      padding-left: 60px;
+    }
+
+    .stop-marker {
+      left: 4px;
+      width: 32px;
+      height: 32px;
+    }
+
+    .highlights li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 16px 0;
+    }
+
+    .flight-banner {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .flight-leg.return { text-align: left; }
+
+    .flight-arrow {
+      text-align: left;
+      transform: rotate(90deg);
+      width: 20px;
+    }
+  }
+
+  @media print {
+    body { background: white; }
+    .container { padding: 20px; }
+    .stop { padding-bottom: 32px; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>2026 希臘</h1>
+
+    <div class="flight-banner">
+      <div class="flight-leg">
+        <span class="flight-airport">TPE · 9/30 (三)</span>
+        <span class="flight-time">09:35 → 20:30</span>
+        <span class="flight-airport" style="color: var(--aegean-light); font-size: 11px;">土耳其航空 · 經伊斯坦堡 · 15h55</span>
+      </div>
+      <div class="flight-arrow">→<small>14 天 13 夜</small></div>
+      <div class="flight-leg return">
+        <span class="flight-airport">ATH · 10/13 (二)</span>
+        <span class="flight-time">10:25 → 08:05+1</span>
+        <span class="flight-airport" style="color: var(--aegean-light); font-size: 11px;">土耳其航空 · 經伊斯坦堡 · 16h40</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="stops">
+
+    <!-- Stop 01: Athens Opening -->
+    <div class="stop">
+      <div class="stop-marker">01</div>
+      <div class="stop-header">
+        <span class="stop-name">Athens</span>
+        <span class="stop-greek">Ἀθῆναι</span>
+      </div>
+
+      <div class="stop-notes">
+        <ul>
+          <li>Day 2 走路量大、Plaka 石板路易滑、穿好走的鞋</li>
+          <li>9 月底 10 月初白天 22 到 27 度、傍晚涼、帶薄外套</li>
+        </ul>
+      </div>
+
+      <ul class="highlights">
+        <li class="transit-li">
+          <span class="highlight-tag">
+            <span class="tag-day">Day 1</span>
+            <span class="tag-date">9/30 (三)</span>
+            <span class="tag-route">Taipei → Athens</span>
+          </span>
+          <span class="highlight-content">
+            <div class="transit-block flight">
+              <div class="transit-header">
+                <span class="transit-icon">✈</span>
+                <span class="transit-title">Turkish Airlines · TPE → ATH<small>經 Istanbul 轉機 · 15h55</small></span>
+              </div>
+              <div class="transit-timeline">
+                <span class="tl-time">06:00</span>
+                <span class="tl-action">從家出發到桃園機場 (國際線提前 3 小時)</span>
+                <span class="tl-time">06:35</span>
+                <span class="tl-action">抵達桃園機場</span>
+                <span class="tl-time">08:30</span>
+                <span class="tl-action">完成 Check-in、行李托運、安檢</span>
+                <span class="tl-time">09:35</span>
+                <span class="tl-action"><strong>TK25 起飛 TPE</strong></span>
+                <span class="tl-time">15:35</span>
+                <span class="tl-action">抵達 Istanbul (IST 當地時間) · 轉機</span>
+                <span class="tl-time">18:00</span>
+                <span class="tl-action">TK1841 起飛 IST</span>
+                <span class="tl-time">20:30</span>
+                <span class="tl-action"><strong>抵達 Athens (ATH)</strong></span>
+              </div>
+            </div>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">晚上</span>
+            <strong>抵達 · Plaka 老城散步</strong>
+            <span class="note">計程車固定價 40 歐到 Plaka 約 45 分鐘。放好行李、Plaka 巷弄找一間小餐館吃第一頓,適應時差、早睡。</span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag">
+            <span class="tag-day">Day 2</span>
+            <span class="tag-date">10/1 (四)</span>
+          </span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">上午</span>
+            <strong>Acropolis (衛城)</strong>
+            <span class="note">一開門就上山避開人潮跟正午高溫。Parthenon (帕德嫩神殿) 是整趟文化行的核心。<span class="venue-info">08:00-19:00 · 票 EUR 20</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <strong>Acropolis Museum (衛城博物館)</strong>
+            <span class="note">下山進 Acropolis Museum,玻璃地板下就是考古現場,館內是 Parthenon 的實體雕刻、不是一般文物博物館。<span class="venue-info">09:00-20:00 (週一 09:00-17:00) · 票 EUR 15</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <strong>Areopagus (亞略巴古山)</strong>
+            <span class="note">出館後順路上 Areopagus、免費、可以俯瞰整個 Athens 市區跟 Acropolis 側面。<span class="venue-info">24hr 開放 · 免費</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">下午</span>
+            <strong>Syntagma Square (憲法廣場) 衛兵交接</strong>
+            <span class="note">午後到 Syntagma Square 看國會大廈前的衛兵交接、穿傳統希臘服裝 (白蓬蓬裙加毛球鞋)。<span class="venue-info">每整點交接 · 免費</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <strong>Panathenaic Stadium (帕納辛奈科體育場)</strong>
+            <span class="note">走過去約 15 分鐘。全世界唯一大理石蓋的體育場、1896 現代奧運舉辦地。<em>從外面拍照就好、不進去。</em><span class="venue-info">08:00-19:00 · 外拍免費 · 入場 EUR 10</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">傍晚</span>
+            <strong>Monastiraki 跳蚤市集</strong>
+            <span class="note">逛市集買手信、一般店家營業到 22:00 左右、傍晚燈光漂亮。</span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <strong>Plaka 晚餐</strong>
+            <span class="note">找間頂樓餐廳看 Acropolis 夜景收尾。<span class="venue-info">Plaka 商店多開到 22:00-23:00</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <strong>第一批採買</strong>
+            <span class="note"><em>採買重點:買重的不易碎耐放品 (橄欖油小罐、乾燥香草如奧勒岡與迷迭香、蜂蜜小罐、Ouzo 茴香酒小瓶)。海島段易碎品跟有時效的留到最後一站 (10/12) 再買。</em></span>
+          </span>
+        </li>
+      </ul>
+
+      <div class="accommodation">
+        <span class="accommodation-label">住宿 · 2 晚</span>
+        <span class="accommodation-place">Plaka 老城區<small>走路可達 Acropolis、Monastiraki、Syntagma Square · 旅館名待訂</small></span>
+      </div>
+    </div>
+
+    <!-- Stop 02: Arachova / Delphi -->
+    <div class="stop">
+      <div class="stop-marker">02</div>
+      <div class="stop-header">
+        <span class="stop-name">Arachova</span>
+        <span class="stop-greek">Ἀράχωβα · 神諭山城</span>
+      </div>
+
+      <div class="stop-notes">
+        <ul>
+          <li>山區、白天 15 到 20 度、傍晚更涼、帶薄外套</li>
+          <li>德爾菲遺址是斜坡+石頭路、要穿好走的鞋</li>
+          <li>Arachova 石板巷弄有起伏、帶媽媽注意腳步</li>
+        </ul>
+      </div>
+
+      <ul class="highlights">
+        <li class="transit-li">
+          <span class="highlight-tag">
+            <span class="tag-day">Day 3</span>
+            <span class="tag-date">10/2 (五)</span>
+            <span class="tag-route">Athens → Arachova</span>
+          </span>
+          <span class="highlight-content">
+            <div class="transit-block car">
+              <div class="transit-header">
+                <span class="transit-icon">🚗</span>
+                <span class="transit-title">私人包車 · Athens → Arachova<small>A1 高速公路 · 約 2.5 小時</small></span>
+              </div>
+              <div class="transit-timeline">
+                <span class="tl-time">08:30</span>
+                <span class="tl-action">從 Plaka 旅館上車</span>
+                <span class="tl-time">11:00</span>
+                <span class="tl-action">抵達 Arachova、放行李、吃午餐</span>
+              </div>
+            </div>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">下午</span>
+            <strong>Delphi 考古遺址</strong>
+            <span class="note">古希臘人心中的世界中心。Apollo 神殿依山而建,俯瞰整片山谷、景觀本身就震撼。從 Arachova 開車 10 分鐘。<span class="venue-info">考古遺址 + 博物館聯票 EUR 12 · 08:30-15:30 每天開放 · 遺址走完約 1.5 小時</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">傍晚</span>
+            <strong>Arachova 山城散步</strong>
+            <span class="note">石板小巷、山城夜色、家常酒館。這一晚純粹放鬆。</span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag">
+            <span class="tag-day">Day 4</span>
+            <span class="tag-date">10/3 (六)</span>
+          </span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">上午</span>
+            <strong>Osios Loukas 修道院 (拜占庭馬賽克)</strong>
+            <span class="note">世界遺產修道院,拜占庭時期的精美馬賽克是希臘最好的之一,遊客少、氣氛安靜。從 Arachova 開車 30 分鐘。<span class="venue-info">09:00-17:00 (冬季 09:00-16:00) · 票 EUR 4 · 女性入內需及膝裙、入口有免費借用</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">下午</span>
+            <strong>Arachova 山城慢活</strong>
+            <span class="note">回 Arachova 慢逛山城、看羊毛織品工藝、吃當地特色羊乳酪。<em>採買重點:當地手工羊毛織品 (圍巾、毯子) 是山城名產、Athens 買不到,看到喜歡當場入手。羊乳酪要放冷藏、不建議帶走。</em></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <strong>Parnassos 山區</strong>
+            <span class="note">傍晚山區空氣散步。</span>
+          </span>
+        </li>
+      </ul>
+
+      <div class="accommodation">
+        <span class="accommodation-label">住宿 · 2 晚</span>
+        <span class="accommodation-place">Arachova 山城<small>石造小鎮、走進中心 3 分鐘 · 旅館名待訂</small></span>
+      </div>
+    </div>
+
+    <!-- Stop 03: Meteora -->
+    <div class="stop">
+      <div class="stop-marker">03</div>
+      <div class="stop-header">
+        <span class="stop-name">Kalambaka</span>
+        <span class="stop-greek">Καλαμπάκα · Meteora 巨岩下的小鎮</span>
+      </div>
+
+      <div class="stop-notes">
+        <ul>
+          <li>女性進修道院需及膝裙、露肩需圍披肩、入口有免費借用</li>
+          <li>男性進修道院需長褲、不能短褲</li>
+          <li>修道院間走山路、有樓梯、體力要求略高</li>
+          <li>山區溫差大、傍晚可能降到 10 度、備外套</li>
+        </ul>
+      </div>
+
+      <ul class="highlights">
+        <li class="transit-li">
+          <span class="highlight-tag">
+            <span class="tag-day">Day 5</span>
+            <span class="tag-date">10/4 (日)</span>
+            <span class="tag-route">Arachova → Kalambaka</span>
+          </span>
+          <span class="highlight-content">
+            <div class="transit-block car">
+              <div class="transit-header">
+                <span class="transit-icon">🚗</span>
+                <span class="transit-title">私人包車 · Arachova → Kalambaka<small>E65 高速公路 · 約 3 小時</small></span>
+              </div>
+              <div class="transit-timeline">
+                <span class="tl-time">09:00</span>
+                <span class="tl-action">從 Arachova 旅館上車</span>
+                <span class="tl-time">10:30</span>
+                <span class="tl-action">中途休息站</span>
+                <span class="tl-time">12:00</span>
+                <span class="tl-action">抵達 Kalambaka、放行李、吃午餐</span>
+              </div>
+            </div>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">傍晚</span>
+            <strong>抵達 · Meteora 巨岩日落熱身</strong>
+            <span class="note">先開上山看日落點,把 Meteora 的第一眼留給黃金時刻。Meteora 意思是「懸浮在空中」,指這些從平原拔地而起、高達 400 公尺的天然砂岩柱。<span class="venue-info">日落點無門票、免費 · 秋季日落約 18:30-19:00</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag">
+            <span class="tag-day">Day 6</span>
+            <span class="tag-date">10/5 (一)</span>
+          </span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">全天</span>
+            <strong>Meteora 懸崖修道院群</strong>
+            <span class="note">整天走訪懸在巨岩上的東正教修道院,建議挑 2 到 3 座進去看。六座修道院各有休館日,行程確定後查好開放日再排順序。<span class="venue-info">每座門票 EUR 3 · 開放時間各異、多為 09:00-15:00 或 16:00 · 女性需及膝裙</span></span>
+          </span>
+        </li>
+      </ul>
+
+      <div class="accommodation">
+        <span class="accommodation-label">住宿 · 2 晚</span>
+        <span class="accommodation-place">Kalambaka 鎮上<small>抬頭就是巨岩、方便一早上山 · 旅館名待訂</small></span>
+      </div>
+    </div>
+
+    <!-- Stop 04: Athens Transit -->
+    <div class="stop">
+      <div class="stop-marker">04</div>
+      <div class="stop-header">
+        <span class="stop-name">Athens</span>
+        <span class="stop-greek">Ἀθῆναι · 轉運夜</span>
+      </div>
+
+      <div class="stop-notes">
+        <ul>
+          <li>純轉運日、不排景點、給媽媽跟行李緩衝</li>
+          <li>住 Piraeus 港附近、隔天早上搭船不用拖行李走遠</li>
+          <li>包車直接送到旅館門口、免搬行李轉車</li>
+        </ul>
+      </div>
+
+      <ul class="highlights">
+        <li class="transit-li">
+          <span class="highlight-tag">
+            <span class="tag-day">Day 7</span>
+            <span class="tag-date">10/6 (二)</span>
+            <span class="tag-route">Kalambaka → Athens (Piraeus)</span>
+          </span>
+          <span class="highlight-content">
+            <div class="transit-block car">
+              <div class="transit-header">
+                <span class="transit-icon">🚗</span>
+                <span class="transit-title">私人包車 · Kalambaka → Athens Piraeus<small>E65 南下 · 約 4.5 小時 (含停景點與午餐)</small></span>
+              </div>
+              <div class="transit-timeline">
+                <span class="tl-time">09:00</span>
+                <span class="tl-action">從 Kalambaka 旅館上車</span>
+                <span class="tl-time">11:30</span>
+                <span class="tl-action">抵達 Thermopylae (溫泉關)、300 壯士遺址 30 分鐘</span>
+                <span class="tl-time">12:30</span>
+                <span class="tl-action">午餐</span>
+                <span class="tl-time">15:00</span>
+                <span class="tl-action"><strong>抵達 Athens Piraeus 港附近旅館、放行李</strong></span>
+              </div>
+            </div>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">傍晚</span>
+            <strong>純轉運夜 · 不排硬行程</strong>
+            <span class="note">港口附近吃頓晚餐早睡。這一晚是給媽媽跟行李的緩衝日、不塞景點。</span>
+          </span>
+        </li>
+      </ul>
+
+      <div class="accommodation">
+        <span class="accommodation-label">住宿 · 1 晚</span>
+        <span class="accommodation-place">Piraeus 港附近<small>方便隔天早上搭渡輪 · 旅館名待訂</small></span>
+      </div>
+    </div>
+
+    <!-- Stop 05: Naxos -->
+    <div class="stop">
+      <div class="stop-marker">05</div>
+      <div class="stop-header">
+        <span class="stop-name">Naxos</span>
+        <span class="stop-greek">Νάξος · 在地小島</span>
+      </div>
+
+      <div class="stop-notes">
+        <ul>
+          <li>10 月中氣溫 20-24 度、海島風大、備薄長袖</li>
+          <li>舊城 Chora 巷弄有階梯、行李拖著上下累、旅館盡量挑好進出的</li>
+          <li>Day 9 完整一天可以放鬆、下海玩水沒問題</li>
+        </ul>
+      </div>
+
+      <ul class="highlights">
+        <li class="transit-li">
+          <span class="highlight-tag">
+            <span class="tag-day">Day 8</span>
+            <span class="tag-date">10/7 (三)</span>
+            <span class="tag-route">Athens → Naxos</span>
+          </span>
+          <span class="highlight-content">
+            <div class="transit-block ferry">
+              <div class="transit-header">
+                <span class="transit-icon">⛴</span>
+                <span class="transit-title">Blue Star 渡輪 · Piraeus → Naxos<small>商務艙 · 約 5 小時</small></span>
+              </div>
+              <div class="transit-timeline">
+                <span class="tl-time">06:30</span>
+                <span class="tl-action">從旅館出發</span>
+                <span class="tl-time">07:00</span>
+                <span class="tl-action">抵達 Piraeus 港</span>
+                <span class="tl-time">07:30</span>
+                <span class="tl-action">完成登船</span>
+                <span class="tl-time">08:00</span>
+                <span class="tl-action"><strong>開船 (實際班次以訂票為準)</strong></span>
+                <span class="tl-time">13:00</span>
+                <span class="tl-action"><strong>抵達 Naxos 港</strong></span>
+                <span class="tl-time">13:30</span>
+                <span class="tl-action">計程車到旅館、放行李</span>
+              </div>
+            </div>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">傍晚</span>
+            <strong>Kastro (威尼斯古堡舊城)</strong>
+            <span class="note">逛舊城,巷弄迷宮式的白色老城,天黑後燈光很美。</span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag">
+            <span class="tag-day">Day 9</span>
+            <span class="tag-date">10/8 (四)</span>
+          </span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">上午</span>
+            <strong>Portara (Apollo 神殿大理石門)</strong>
+            <span class="note">看港口地標大理石門的日光,島上最重要的地標。是未完成的 Apollo 神殿遺跡、只剩一個巨大的門柱。<span class="venue-info">全天開放、免費 · 步行從舊城 10 分鐘</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">下午</span>
+            <strong>Plaka 海灘 · 在地美食</strong>
+            <span class="note">到 Plaka 或 Agios Prokopios 海灘泡水放鬆,水淺、沙細,帶媽媽輕鬆。島上乳酪跟當地菜值得專程吃。<em>採買重點:Naxos 產的乳酪(Graviera 硬乳酪可以帶回台灣、真空包裝)、Kitron 檸檬酒(島上特產、Athens 少見)、島上小陶器。</em></span>
+          </span>
+        </li>
+      </ul>
+
+      <div class="accommodation">
+        <span class="accommodation-label">住宿 · 2 晚</span>
+        <span class="accommodation-place">Naxos Chora 或港口區<small>步行到舊城、大理石門方便 · 旅館名待訂</small></span>
+      </div>
+    </div>
+
+    <!-- Stop 06: Santorini -->
+    <div class="stop">
+      <div class="stop-marker">06</div>
+      <div class="stop-header">
+        <span class="stop-name">Santorini</span>
+        <span class="stop-greek">Σαντορίνη · 火山島</span>
+      </div>
+
+      <div class="stop-notes">
+        <ul>
+          <li>10 月中氣溫 19-23 度、傍晚涼、帶薄外套</li>
+          <li>懸崖地形階梯多、住平地方便型旅館、白天再進 Fira 跟 Oia 看景</li>
+          <li>Oia 看日落人潮爆炸、提前 1 小時卡好位置</li>
+          <li>行程重頭戲、有一天完整放鬆的時間</li>
+        </ul>
+      </div>
+
+      <ul class="highlights">
+        <li class="transit-li">
+          <span class="highlight-tag">
+            <span class="tag-day">Day 10</span>
+            <span class="tag-date">10/9 (五)</span>
+            <span class="tag-route">Naxos → Santorini</span>
+          </span>
+          <span class="highlight-content">
+            <div class="transit-block ferry">
+              <div class="transit-header">
+                <span class="transit-icon">⛴</span>
+                <span class="transit-title">Blue Star 渡輪 · Naxos → Santorini<small>商務艙 · 約 2 小時</small></span>
+              </div>
+              <div class="transit-timeline">
+                <span class="tl-time">10:00</span>
+                <span class="tl-action">從旅館出發</span>
+                <span class="tl-time">10:30</span>
+                <span class="tl-action">抵達 Naxos 港</span>
+                <span class="tl-time">10:45</span>
+                <span class="tl-action">完成登船</span>
+                <span class="tl-time">11:00</span>
+                <span class="tl-action"><strong>開船 (實際班次以訂票為準)</strong></span>
+                <span class="tl-time">13:00</span>
+                <span class="tl-action"><strong>抵達 Santorini (Fira Old Port 或 Athinios 港)</strong></span>
+                <span class="tl-time">14:00</span>
+                <span class="tl-action">計程車或旅館接駁到住宿</span>
+              </div>
+            </div>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">傍晚</span>
+            <strong>Fira 懸崖漫步</strong>
+            <span class="note">走 Fira 懸崖步道、Caldera (火山口) 景觀從這裡展開。找間懸崖餐廳吃第一頓。</span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <strong>Fira Cable Car (費拉纜車)</strong>
+            <span class="note"><em>如果渡輪停在 Fira Old Port,從舊港上 Fira 搭纜車、3 分鐘就到,帶媽媽必備,不用爬 587 階石階或騎驢子。</em><span class="venue-info">09:00-21:00 · 單程 EUR 6、來回 EUR 12</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag">
+            <span class="tag-day">Day 11</span>
+            <span class="tag-date">10/10 (六)</span>
+          </span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">下午到傍晚</span>
+            <strong>Oia 藍頂教堂 · 日落</strong>
+            <span class="note">白牆藍頂明信片場景在這裡。下午出發、傍晚日落前一小時卡好位置,是全希臘最有名的一幕。上午可以睡到自然醒、慢享早餐。<span class="venue-info">Oia 從 Fira 搭巴士 30 分鐘 · 巴士單程 EUR 2 · 秋季日落約 18:30-19:00</span></span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag">
+            <span class="tag-day">Day 12</span>
+            <span class="tag-date">10/11 (日)</span>
+          </span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">全天</span>
+            <strong>Caldera (火山口) 船遊 · 酒莊 · Pyrgos 山村 (三選一或組合)</strong>
+            <span class="note">船遊可以泡 Caldera 溫泉,酒莊品當地火山土葡萄酒,Pyrgos 是安靜的傳統山村、遊客少。<em>採買重點:酒莊直銷的火山土葡萄酒(Assyrtiko 白酒)、Santorini 小番茄乾跟番茄醬、當地藏紅花。酒莊買比Athens 便宜。</em></span>
+          </span>
+        </li>
+      </ul>
+
+      <div class="accommodation">
+        <span class="accommodation-label">住宿 · 3 晚</span>
+        <span class="accommodation-place">聖托里尼平地方便型旅館<small>避開懸崖石階、有停車跟接駁 · 旅館名待訂</small></span>
+      </div>
+    </div>
+
+    <!-- Stop 07: Athens Final -->
+    <div class="stop">
+      <div class="stop-marker">07</div>
+      <div class="stop-header">
+        <span class="stop-name">Athens</span>
+        <span class="stop-greek">Ἀθῆναι · 收尾夜</span>
+      </div>
+
+      <div class="stop-notes">
+        <ul>
+          <li>Day 13 早上退房 Santorini、下午飛雅典、當晚在 Plaka 收尾</li>
+          <li>Day 14 早上 07:45 前到機場、10:25 起飛回台北</li>
+          <li>回旅館後把整趟採買整理打包、確認行李重量沒超</li>
+        </ul>
+      </div>
+
+      <ul class="highlights">
+        <li>
+          <span class="highlight-tag">
+            <span class="tag-day">Day 13</span>
+            <span class="tag-date">10/12 (一)</span>
+          </span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">上午</span>
+            <strong>Fira 懸崖早餐 · 慢步收尾</strong>
+            <span class="note">最後半天在 Santorini。懸崖景觀早餐、Fira 主街慢逛、收拾行李。約 12:00 退房、行李寄放旅館。</span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">中午</span>
+            <strong>告別 Santorini · 午餐</strong>
+            <span class="note">吃頓好的、告別 Santorini。約 13:30 從旅館取行李、搭車前往機場。</span>
+          </span>
+        </li>
+        <li class="transit-li">
+          <span class="highlight-tag">
+            <span class="tag-route">Santorini → Athens</span>
+          </span>
+          <span class="highlight-content">
+            <div class="transit-block flight">
+              <div class="transit-header">
+                <span class="transit-icon">✈</span>
+                <span class="transit-title">Aegean · JTR → ATH<small>國內線 · 已訂 · 45 分鐘</small></span>
+              </div>
+              <div class="transit-timeline">
+                <span class="tl-time">13:30</span>
+                <span class="tl-action">從 Fira 旅館出發到機場 (國內線提前 1.5 小時)</span>
+                <span class="tl-time">14:00</span>
+                <span class="tl-action">抵達 Santorini 機場 (JTR)</span>
+                <span class="tl-time">15:30</span>
+                <span class="tl-action">完成 Check-in、行李托運、安檢</span>
+                <span class="tl-time">16:35</span>
+                <span class="tl-action"><strong>Aegean 起飛 JTR</strong></span>
+                <span class="tl-time">17:20</span>
+                <span class="tl-action"><strong>抵達 Athens (ATH)</strong></span>
+                <span class="tl-time">18:30</span>
+                <span class="tl-action">計程車到 Plaka 旅館 (固定價 EUR 40)</span>
+              </div>
+            </div>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <span class="highlight-subtag">傍晚</span>
+            <strong>告別晚餐</strong>
+            <span class="note">找間有 Acropolis 夜景的餐廳吃一頓好的、好好收尾。</span>
+          </span>
+        </li>
+        <li>
+          <span class="highlight-tag"></span>
+          <span class="highlight-content">
+            <strong>最後採買 (主戰場)</strong>
+            <span class="note">Plaka 補買前面沒買到的手信。<em>採買重點:易碎品 (陶器、瓷杯、藍眼睛飾品)、有時效品 (當天真空包裝的食物)、Plaka 特色紀念品 (傳統服飾娃娃、金銀飾品、皮製品、橄欖香皂、天然海綿)。Plaka 商店開到 22:00 或 23:00、今晚一次搞定。</em><span class="venue-info">Plaka 商店 10:00-23:00</span></span>
+          </span>
+        </li>
+        <li class="transit-li">
+          <span class="highlight-tag">
+            <span class="tag-day">Day 14</span>
+            <span class="tag-date">10/13 (二)</span>
+            <span class="tag-route">Athens → Taipei</span>
+          </span>
+          <span class="highlight-content">
+            <div class="transit-block flight">
+              <div class="transit-header">
+                <span class="transit-icon">✈</span>
+                <span class="transit-title">Turkish Airlines · ATH → TPE<small>經 Istanbul 轉機 · 抵台北為 10/14 (三)</small></span>
+              </div>
+              <div class="transit-timeline">
+                <span class="tl-time">06:30</span>
+                <span class="tl-action">從 Plaka 旅館退房</span>
+                <span class="tl-time">07:00</span>
+                <span class="tl-action">計程車出發到 Athens 機場 (固定價 EUR 40)</span>
+                <span class="tl-time">07:45</span>
+                <span class="tl-action">抵達 Athens 機場 (國際線提前 2.5 小時)</span>
+                <span class="tl-time">09:00</span>
+                <span class="tl-action">完成 Check-in、行李托運、安檢</span>
+                <span class="tl-time">10:25</span>
+                <span class="tl-action"><strong>TK1842 起飛 ATH</strong></span>
+                <span class="tl-time">14:00</span>
+                <span class="tl-action">抵達 Istanbul (IST) · 轉機</span>
+                <span class="tl-time">--:--</span>
+                <span class="tl-action">TK 起飛 IST · 訂票後補</span>
+                <span class="tl-time">08:05+1</span>
+                <span class="tl-action"><strong>10/14 (三) 抵達桃園機場</strong></span>
+              </div>
+            </div>
+          </span>
+        </li>
+      </ul>
+      </ul>
+
+      <div class="accommodation">
+        <span class="accommodation-label">住宿 · 1 晚</span>
+        <span class="accommodation-place">Plaka 老城區<small>回到熟悉的旅館、離機場動線最順 · 旅館名待訂</small></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footnote">
+    <div class="footnote-title">Notes</div>
+    <p>整段完美落在十月上中旬的黃金窗口內:天氣涼爽舒服、愛琴海海況穩定、島上餐廳與渡輪班次都還在營業,是希臘旅遊的甜蜜點。</p>
+    <p>本行程以「帶媽媽舒適」為原則設計。避開了 Oia 懸崖邊的石階旅館、聖托里尼段落選平地方便型住宿,內陸段全程用私人包車而非大眾運輸,行李移動幾乎不需要爬石階或拖坡。</p>
+    <p><em>備註:2023 年 Daniel 風暴後,Kalambaka 直達 Athens 的火車暫停營運,預計 2026 年底到 2027 年中才會恢復。這趟內陸段全程用包車最省事,或次選 KTEL 巴士(EUR 29-35 一人,約 5-6 小時含 Trikala 轉車)。</em></p>
+    <p><strong>行李重量管理:</strong>土航跟 Aegean 都是單件 23kg 上限、兩人合計 46kg。扣掉衣物盥洗用品約 25-28kg,可放採買品的空間是 18-21kg。參考重量:橄欖油 500ml 約 0.5kg、陶器一組 2-3kg、羊毛毯 1 條約 1kg、葡萄酒 1 瓶 1.2kg (含玻璃)。建議帶一個折疊布袋或軟殼空箱當手提、回程分裝重物、土航 EcoFly 手提可到 8kg。</p>
+    <p>還沒完成的訂票:內陸包車、渡輪、所有旅館。依序處理。</p>
+  </div>
+
+  <div class="cost-section">
+    <span class="cost-title">Cost Record · 費用紀錄</span>
+    <table class="cost-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>訂購日</th>
+          <th>實際日</th>
+          <th class="cost-amount">單價</th>
+          <th class="cost-amount">合計 (2 人)</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Turkish Airlines · TPE ↔ ATH (來回)</td>
+          <td class="cost-date">8/5</td>
+          <td class="cost-date">9/30 · 10/13</td>
+          <td class="cost-amount">NT$ 29,849</td>
+          <td class="cost-amount">NT$ 59,698</td>
+          <td>含 23kg 托運</td>
+        </tr>
+        <tr>
+          <td>Aegean · JTR → ATH</td>
+          <td class="cost-date">8/9</td>
+          <td class="cost-date">10/12</td>
+          <td class="cost-amount">EUR 134.60<br>NT$ 4,950</td>
+          <td class="cost-amount">EUR 269.20<br>NT$ 9,900</td>
+          <td>含 23kg 托運</td>
+        </tr>
+        <tr>
+          <td colspan="6" style="color: var(--stone); font-style: italic; padding-top: 20px;">以下待訂</td>
+        </tr>
+        <tr>
+          <td>Blue Star 渡輪 · Piraeus → Naxos</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/7</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>商務艙</td>
+        </tr>
+        <tr>
+          <td>Blue Star 渡輪 · Naxos → Santorini</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/9</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>商務艙</td>
+        </tr>
+        <tr>
+          <td>私人包車 · Athens → Arachova</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/2</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>約 2.5 小時</td>
+        </tr>
+        <tr>
+          <td>私人包車 · Arachova → Kalambaka</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/4</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>約 3 小時</td>
+        </tr>
+        <tr>
+          <td>私人包車 · Kalambaka → Athens</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/6</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>約 4.5 小時 · 含停景點</td>
+        </tr>
+        <tr>
+          <td>Athens 旅館 · Plaka</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">9/30 · 10/1</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>2 晚</td>
+        </tr>
+        <tr>
+          <td>Arachova 旅館</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/2 · 10/3</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>2 晚</td>
+        </tr>
+        <tr>
+          <td>Kalambaka 旅館</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/4 · 10/5</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>2 晚</td>
+        </tr>
+        <tr>
+          <td>Athens Piraeus 旅館</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/6</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>1 晚 · 轉運</td>
+        </tr>
+        <tr>
+          <td>Naxos 旅館</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/7 · 10/8</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>2 晚</td>
+        </tr>
+        <tr>
+          <td>Santorini 旅館</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/9 · 10/10 · 10/11</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>3 晚 · 平地方便型</td>
+        </tr>
+        <tr>
+          <td>Athens 旅館 · Plaka</td>
+          <td class="cost-date">—</td>
+          <td class="cost-date">10/12</td>
+          <td class="cost-amount">—</td>
+          <td class="cost-amount">—</td>
+          <td>1 晚 · 收尾</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</body>
+</html>
