@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 希臘 · 旅館推薦</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --whitewash: #F6F4EE;
+    --whitewash-deep: #EEE9D9;
+    --aegean-deep: #14243C;
+    --aegean: #2B3A50;
+    --aegean-light: #5D6D8A;
+    --olive-wood: #7A5A38;
+    --stone: #8A8578;
+    --rule: #D8D2C2;
+    --accent-green: #5D6D5F;
+    --accent-red: #B94A3B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--whitewash);
+    color: var(--aegean-deep);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+  }
+
+  header {
+    margin-bottom: 56px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-weight: 400;
+    font-size: clamp(36px, 6vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--aegean-deep);
+    margin: 0 0 12px;
+  }
+
+  .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--aegean-light);
+    letter-spacing: 0.05em;
+  }
+
+  section {
+    margin-bottom: 56px;
+  }
+
+  h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    margin: 0 0 24px;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--aegean-deep);
+    margin: 0 0 8px;
+    line-height: 1.3;
+  }
+
+  p {
+    margin: 0 0 12px;
+    color: var(--aegean-deep);
+    font-size: 15px;
+  }
+
+  .budget-table,
+  .stops-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+  }
+
+  .budget-table th,
+  .budget-table td,
+  .stops-table th,
+  .stops-table td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+    vertical-align: top;
+  }
+
+  .budget-table th,
+  .stops-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    font-weight: 500;
+  }
+
+  .budget-table td strong,
+  .stops-table td strong {
+    color: var(--aegean-deep);
+    font-weight: 600;
+  }
+
+  .budget-table .recommend {
+    background: var(--whitewash-deep);
+  }
+
+  .budget-num {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--aegean-deep);
+    white-space: nowrap;
+  }
+
+  .stop-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--olive-wood);
+    font-weight: 600;
+  }
+
+  .stops-table td {
+    font-size: 13px;
+    padding: 12px 10px;
+  }
+
+  .stop-block {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .stop-block-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .stop-block-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--olive-wood);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .stop-block-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    color: var(--aegean-deep);
+    font-weight: 500;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .stop-block-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--aegean-light);
+    letter-spacing: 0.05em;
+  }
+
+  .hotel-cards {
+    display: grid;
+    gap: 16px;
+  }
+
+  .hotel-card {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 22px 26px;
+    border-radius: 3px;
+  }
+
+  .hotel-card.premium {
+    border-left: 3px solid var(--accent-green);
+  }
+
+  .hotel-card.value {
+    border-left: 3px solid var(--olive-wood);
+  }
+
+  .hotel-card.budget {
+    border-left: 3px solid var(--aegean-light);
+  }
+
+  .hotel-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    background: var(--whitewash-deep);
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+  }
+
+  .hotel-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--aegean-deep);
+    margin: 0 0 4px;
+  }
+
+  .hotel-area {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--olive-wood);
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+
+  .hotel-detail {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 6px 16px;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .hotel-detail dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    padding-top: 2px;
+  }
+
+  .hotel-detail dd {
+    margin: 0;
+    color: var(--aegean-deep);
+    line-height: 1.5;
+  }
+
+  .hotel-detail dd strong {
+    color: var(--aegean-deep);
+    font-weight: 600;
+  }
+
+  .hotel-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    color: var(--aegean-deep);
+    font-weight: 600;
+  }
+
+  .hotel-note {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--rule);
+    font-size: 12px;
+    color: var(--stone);
+    font-style: italic;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>旅館推薦</h1>
+    <div class="subtitle">2026 希臘 · 7 段 13 晚 · 帶媽媽舒適原則</div>
+  </header>
+
+  <section>
+    <h2>13 晚預算試算 · Budget Estimate</h2>
+
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>方案</th>
+          <th>平均每晚</th>
+          <th>13 晚總計 (2 人)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>平價</strong></td>
+          <td class="budget-num">EUR 80</td>
+          <td class="budget-num">EUR 1,040 (約 NT$ 38,000)</td>
+        </tr>
+        <tr class="recommend">
+          <td><strong>中位 (推薦)</strong></td>
+          <td class="budget-num">EUR 100-120</td>
+          <td class="budget-num">EUR 1,300-1,560 (約 NT$ 48,000-58,000)</td>
+        </tr>
+        <tr>
+          <td><strong>舒適</strong></td>
+          <td class="budget-num">EUR 150</td>
+          <td class="budget-num">EUR 1,950 (約 NT$ 72,000)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>7 段策略 · By Stop</h2>
+
+    <table class="stops-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>目的地</th>
+          <th>晚數</th>
+          <th>最佳位置</th>
+          <th>每晚預算</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="stop-num">01</td>
+          <td><strong>Athens Plaka</strong><br>9/30 · 10/1</td>
+          <td>2 晚</td>
+          <td>Plaka、Monastiraki 或 Syntagma 附近安靜巷弄、走 Acropolis 10 分內</td>
+          <td class="budget-num">EUR 100-150</td>
+        </tr>
+        <tr>
+          <td class="stop-num">02</td>
+          <td><strong>Arachova</strong><br>10/2 · 10/3</td>
+          <td>2 晚</td>
+          <td>主街 Delphi 街中段、看得到山谷</td>
+          <td class="budget-num">EUR 80-120</td>
+        </tr>
+        <tr>
+          <td class="stop-num">03</td>
+          <td><strong>Kalambaka</strong><br>10/4 · 10/5</td>
+          <td>2 晚</td>
+          <td>北邊近 Meteora 步道口、抬頭看得到巨岩</td>
+          <td class="budget-num">EUR 70-110</td>
+        </tr>
+        <tr>
+          <td class="stop-num">04</td>
+          <td><strong>Athens Piraeus</strong><br>10/6</td>
+          <td>1 晚</td>
+          <td>Piraeus 港 gate E7 步行 10 分內</td>
+          <td class="budget-num">EUR 60-90</td>
+        </tr>
+        <tr>
+          <td class="stop-num">05</td>
+          <td><strong>Naxos</strong><br>10/7 · 10/8</td>
+          <td>2 晚</td>
+          <td>Chora 舊城邊緣或 Agios Georgios 海灘 (安靜)</td>
+          <td class="budget-num">EUR 80-130</td>
+        </tr>
+        <tr>
+          <td class="stop-num">06</td>
+          <td><strong>Santorini · Fira 平地</strong><br>10/9 · 10/10 · 10/11</td>
+          <td>3 晚</td>
+          <td>Fira 主廣場、平地、<strong style="color: var(--accent-red);">避開懸崖石階旅館</strong></td>
+          <td class="budget-num">EUR 120-200</td>
+        </tr>
+        <tr>
+          <td class="stop-num">07</td>
+          <td><strong>Athens Plaka (收尾)</strong><br>10/12</td>
+          <td>1 晚</td>
+          <td>建議跟開場同一家、行李方便</td>
+          <td class="budget-num">EUR 100-150</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>具體推薦 · Recommendations</h2>
+
+    <div class="stop-block">
+      <div class="stop-block-header">
+        <span class="stop-block-num">STOP 01</span>
+        <h3 class="stop-block-title">Athens Plaka</h3>
+        <span class="stop-block-meta">9/30 · 10/1 · 2 晚</span>
+      </div>
+      <div class="hotel-cards">
+        <div class="hotel-card premium">
+          <span class="hotel-tag">Premium · 精品</span>
+          <h3 class="hotel-name">AthensWas Design Hotel</h3>
+          <p class="hotel-area">Dionysiou Areopagitou 5 · Plaka 邊緣</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>走 Acropolis <strong>正對面 3 分鐘</strong></dd>
+            <dt>特色</dt><dd>設計旅館、房間現代化、隔音好、頂樓餐廳看 Acropolis</dd>
+            <dt>Booking</dt><dd>9.2 到 9.4</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 180 到 250 / 晚</dd>
+            <dt>適合</dt><dd>7 條件幾乎全解決、位置、隔音、乾淨度都頂尖</dd>
+          </dl>
+          <p class="hotel-note">貴、但送早餐後 CP 值不差。兩晚 EUR 360 到 500。</p>
+        </div>
+        <div class="hotel-card value">
+          <span class="hotel-tag">Value · CP 值</span>
+          <h3 class="hotel-name">Attalos Hotel</h3>
+          <p class="hotel-area">Athinas 29 · Monastiraki 廣場邊</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>走 Acropolis 12 分鐘、Plaka 8 分鐘</dd>
+            <dt>特色</dt><dd>頂樓看 Acropolis 的餐廳、房間翻新過、有電梯、含早餐</dd>
+            <dt>Booking</dt><dd>8.6 到 8.8</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 90 到 130 / 晚</dd>
+            <dt>適合</dt><dd>位置絕佳、CP 值高、老字號翻新過</dd>
+          </dl>
+          <p class="hotel-note">面對 Athinas 主街的房間會吵、訂房時 email 說 "please quiet room facing back / high floor"。兩晚 EUR 180 到 260。</p>
+        </div>
+        <div class="hotel-card budget">
+          <span class="hotel-tag">Budget · 平價</span>
+          <h3 class="hotel-name">Adrian Hotel</h3>
+          <p class="hotel-area">Adrianou 74 · Plaka 心臟</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Plaka 中心、走 Acropolis 5 分鐘</dd>
+            <dt>特色</dt><dd>家庭經營 30 年、旅館坐落 Plaka 中心</dd>
+            <dt>Booking</dt><dd>8.4 到 8.6</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 70 到 100 / 晚</dd>
+            <dt>適合</dt><dd>便宜、位置頂級、家族經營服務親切</dd>
+          </dl>
+          <p class="hotel-note">建築老、房間翻新程度不一、訂房時要求 "renovated room"。兩晚 EUR 140 到 200。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop-block">
+      <div class="stop-block-header">
+        <span class="stop-block-num">STOP 02</span>
+        <h3 class="stop-block-title">Arachova</h3>
+        <span class="stop-block-meta">10/2 · 10/3 · 2 晚</span>
+      </div>
+      <div class="hotel-cards">
+        <div class="hotel-card premium">
+          <span class="hotel-tag">Premium · 精品</span>
+          <h3 class="hotel-name">Arty Grand Hotel</h3>
+          <p class="hotel-area">Delphon 55 · 山城地標</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Arachova 主街、視野看山谷</dd>
+            <dt>特色</dt><dd>木造裝潢、傳統山城風、暖氣好、含早餐</dd>
+            <dt>Booking</dt><dd>9.0 到 9.2</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 130 到 180 / 晚</dd>
+            <dt>適合</dt><dd>希臘冬季度假勝地地標、體驗山城氛圍</dd>
+          </dl>
+          <p class="hotel-note">山區溫差大、晚上寒冷、暖氣品質重要。兩晚 EUR 260 到 360。</p>
+        </div>
+        <div class="hotel-card value">
+          <span class="hotel-tag">Value · CP 值</span>
+          <h3 class="hotel-name">Domotel Anemolia Mountain Resort</h3>
+          <p class="hotel-area">Arachova 郊區 · 度假型</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Arachova 外圍山區、開車 5 分鐘到山城</dd>
+            <dt>特色</dt><dd>Mountain Resort、有 SPA 跟游泳池、寬敞、電梯完善</dd>
+            <dt>Booking</dt><dd>8.8 到 9.0</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 90 到 130 / 晚</dd>
+            <dt>適合</dt><dd>喜歡放鬆型、有 SPA 想泡湯的行程</dd>
+          </dl>
+          <p class="hotel-note">離山城要開車、山城餐廳需要包車或計程車。兩晚 EUR 180 到 260。</p>
+        </div>
+        <div class="hotel-card budget">
+          <span class="hotel-tag">Budget · 平價</span>
+          <h3 class="hotel-name">Kastro Rooms</h3>
+          <p class="hotel-area">Arachova 中心</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>山城中心、走路到主街 3 分鐘</dd>
+            <dt>特色</dt><dd>家庭經營、傳統房間、服務親切</dd>
+            <dt>Booking</dt><dd>8.6 到 8.8</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 70 到 100 / 晚</dd>
+            <dt>適合</dt><dd>預算控制、想體驗當地人家庭經營</dd>
+          </dl>
+          <p class="hotel-note">建築規模小、可能沒電梯、要確認樓層。兩晚 EUR 140 到 200。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop-block">
+      <div class="stop-block-header">
+        <span class="stop-block-num">STOP 03</span>
+        <h3 class="stop-block-title">Kalambaka · Meteora</h3>
+        <span class="stop-block-meta">10/4 · 10/5 · 2 晚</span>
+      </div>
+      <div class="hotel-cards">
+        <div class="hotel-card premium">
+          <span class="hotel-tag">Premium · 精品</span>
+          <h3 class="hotel-name">Divani Meteora Hotel</h3>
+          <p class="hotel-area">Kalambaka 邊緣 · 大型飯店</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Kalambaka 城邊、可看 Meteora 巨岩</dd>
+            <dt>特色</dt><dd>連鎖大飯店、有 SPA、游泳池、電梯完善、含早餐</dd>
+            <dt>Booking</dt><dd>9.0 到 9.2</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 130 到 180 / 晚</dd>
+            <dt>適合</dt><dd>喜歡連鎖飯店服務標準化、有 SPA 放鬆</dd>
+          </dl>
+          <p class="hotel-note">體驗較商業、少當地風味。兩晚 EUR 260 到 360。</p>
+        </div>
+        <div class="hotel-card value">
+          <span class="hotel-tag">Value · CP 值</span>
+          <h3 class="hotel-name">Hotel Doupiani House</h3>
+          <p class="hotel-area">Kastraki 村 · 靠 Meteora 步道口</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Kastraki (Kalambaka 隔壁小村)、<strong>房間直接看巨岩</strong></dd>
+            <dt>特色</dt><dd>家族經營、口碑極好、傳統石造、含早餐</dd>
+            <dt>Booking</dt><dd>9.4 到 9.6</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 90 到 120 / 晚</dd>
+            <dt>適合</dt><dd>想要傳統山村體驗跟看巨岩窗景的組合</dd>
+          </dl>
+          <p class="hotel-note">Kastraki 比 Kalambaka 更靠近 Meteora、但餐廳少、要開車到 Kalambaka 吃飯。兩晚 EUR 180 到 240。</p>
+        </div>
+        <div class="hotel-card budget">
+          <span class="hotel-tag">Budget · 平價</span>
+          <h3 class="hotel-name">Grand Meteora Hotel</h3>
+          <p class="hotel-area">Kalambaka 中心</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Kalambaka 城中心、看巨岩房間爽</dd>
+            <dt>特色</dt><dd>老字號、翻新過、電梯有、含早餐</dd>
+            <dt>Booking</dt><dd>8.6 到 8.8</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 70 到 100 / 晚</dd>
+            <dt>適合</dt><dd>Kalambaka 市區走路方便</dd>
+          </dl>
+          <p class="hotel-note">訂房時要求 <em>facing Meteora rocks room</em>、否則面對城市。兩晚 EUR 140 到 200。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop-block">
+      <div class="stop-block-header">
+        <span class="stop-block-num">STOP 04</span>
+        <h3 class="stop-block-title">Athens Piraeus · 轉運</h3>
+        <span class="stop-block-meta">10/6 · 1 晚</span>
+      </div>
+      <div class="hotel-cards">
+        <div class="hotel-card value">
+          <span class="hotel-tag">Value · 首選</span>
+          <h3 class="hotel-name">Piraeus Theoxenia Hotel</h3>
+          <p class="hotel-area">Karaoli & Dimitriou 23 · 港口正對面</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd><strong>正對 Piraeus 港</strong>、走到 gate E7 約 10 分鐘</dd>
+            <dt>特色</dt><dd>老字號 4 星、房間翻新、含早餐、有電梯</dd>
+            <dt>Booking</dt><dd>8.8 到 9.0</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 90 到 140 / 晚</dd>
+            <dt>適合</dt><dd>早上搭船最省事、不用拖行李走遠</dd>
+          </dl>
+          <p class="hotel-note">港口就是交通樞紐、晚上可能有人潮跟計程車聲、選面海一側房間。一晚 EUR 90 到 140。</p>
+        </div>
+        <div class="hotel-card value">
+          <span class="hotel-tag">Value · CP 值</span>
+          <h3 class="hotel-name">Piraeus Dream City Hotel</h3>
+          <p class="hotel-area">Notara 79 · Piraeus 市中心</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>走到 Piraeus 港 gate E7 約 15 分鐘、離電車站近</dd>
+            <dt>特色</dt><dd>翻新過的中價位、房間乾淨、含早餐</dd>
+            <dt>Booking</dt><dd>8.6 到 8.8</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 70 到 100 / 晚</dd>
+            <dt>適合</dt><dd>純轉運、不用過度豪華</dd>
+          </dl>
+          <p class="hotel-note">位於 Piraeus 市中心不在港口正對面、早上要叫計程車比較快。一晚 EUR 70 到 100。</p>
+        </div>
+        <div class="hotel-card budget">
+          <span class="hotel-tag">Budget · 平價</span>
+          <h3 class="hotel-name">Hotel Delfini</h3>
+          <p class="hotel-area">Leocharous 7 · Piraeus 港附近</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Piraeus 港步行 12 分鐘</dd>
+            <dt>特色</dt><dd>基本乾淨、經濟型、含早餐</dd>
+            <dt>Booking</dt><dd>8.2 到 8.4</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 50 到 70 / 晚</dd>
+            <dt>適合</dt><dd>轉運夜省錢優先</dd>
+          </dl>
+          <p class="hotel-note">房間簡單、可能沒電梯、要注意樓層。一晚 EUR 50 到 70。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop-block">
+      <div class="stop-block-header">
+        <span class="stop-block-num">STOP 05</span>
+        <h3 class="stop-block-title">Naxos</h3>
+        <span class="stop-block-meta">10/7 · 10/8 · 2 晚</span>
+      </div>
+      <div class="hotel-cards">
+        <div class="hotel-card premium">
+          <span class="hotel-tag">Premium · 精品</span>
+          <h3 class="hotel-name">Nissaki Beach Hotel</h3>
+          <p class="hotel-area">Agios Georgios 海灘旁</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Agios Georgios 沙灘旁、走 Chora 舊城 10 分鐘</dd>
+            <dt>特色</dt><dd>海景房、有電梯、含早餐、私人海灘區</dd>
+            <dt>Booking</dt><dd>9.0 到 9.2</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 130 到 180 / 晚</dd>
+            <dt>適合</dt><dd>想享受海灘度假、Naxos Day 9 下海玩水</dd>
+          </dl>
+          <p class="hotel-note">10 月上旬海水還能下、旅館位置很好。兩晚 EUR 260 到 360。</p>
+        </div>
+        <div class="hotel-card value">
+          <span class="hotel-tag">Value · CP 值</span>
+          <h3 class="hotel-name">Kavuras Village</h3>
+          <p class="hotel-area">Agios Prokopios 海灘旁</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Agios Prokopios 海灘旁、離 Chora 舊城 5 分鐘計程車</dd>
+            <dt>特色</dt><dd>大游泳池、平地寬敞、有電梯、含早餐</dd>
+            <dt>Booking</dt><dd>9.0 到 9.2</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 90 到 130 / 晚</dd>
+            <dt>適合</dt><dd>喜歡度假村感、走路方便、有泳池</dd>
+          </dl>
+          <p class="hotel-note">離 Chora 舊城有一點距離、想吃在地餐廳要計程車。兩晚 EUR 180 到 260。</p>
+        </div>
+        <div class="hotel-card budget">
+          <span class="hotel-tag">Budget · 平價</span>
+          <h3 class="hotel-name">Studios Kalergis</h3>
+          <p class="hotel-area">Chora 舊城心臟</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Chora 舊城中心、走路能到 Portara 5 分鐘</dd>
+            <dt>特色</dt><dd>家庭經營、傳統白牆房、含早餐</dd>
+            <dt>Booking</dt><dd>8.6 到 8.8</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 60 到 90 / 晚</dd>
+            <dt>適合</dt><dd>想住舊城體驗巷弄、預算控制</dd>
+          </dl>
+          <p class="hotel-note">舊城巷弄有階梯、拖行李累、可能沒電梯、要確認。兩晚 EUR 120 到 180。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop-block">
+      <div class="stop-block-header">
+        <span class="stop-block-num">STOP 06</span>
+        <h3 class="stop-block-title">Santorini · Fira 平地</h3>
+        <span class="stop-block-meta">10/9 · 10/10 · 10/11 · 3 晚</span>
+      </div>
+      <div class="hotel-cards">
+        <div class="hotel-card premium">
+          <span class="hotel-tag">Premium · 精品</span>
+          <h3 class="hotel-name">Aressana Spa Hotel & Suites</h3>
+          <p class="hotel-area">Fira 中心 · 平地</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Fira 中心平地、走 Fira 懸崖步道 5 分鐘</dd>
+            <dt>特色</dt><dd>SPA、電梯、含早餐、大游泳池、無石階</dd>
+            <dt>Booking</dt><dd>9.2 到 9.4</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 180 到 280 / 晚</dd>
+            <dt>適合</dt><dd>享受 Santorini 頂級服務、平地方便</dd>
+          </dl>
+          <p class="hotel-note">3 晚 EUR 540 到 840、是整趟最大單筆住宿花費。但帶媽媽平地無石階值得。</p>
+        </div>
+        <div class="hotel-card value">
+          <span class="hotel-tag">Value · CP 值</span>
+          <h3 class="hotel-name">El Greco Resort</h3>
+          <p class="hotel-area">Fira 邊緣 · 平地</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Fira 邊緣、走 Fira 主街 8 分鐘</dd>
+            <dt>特色</dt><dd>大游泳池、電梯、含早餐、有 SPA、平地</dd>
+            <dt>Booking</dt><dd>8.8 到 9.0</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 130 到 180 / 晚</dd>
+            <dt>適合</dt><dd>不想花太多、有游泳池、平地方便</dd>
+          </dl>
+          <p class="hotel-note">在 Fira 外圍、離懸崖步道要走一點、但避開懸崖旅館的石階。3 晚 EUR 390 到 540。</p>
+        </div>
+        <div class="hotel-card budget">
+          <span class="hotel-tag">Budget · 平價</span>
+          <h3 class="hotel-name">Zorzis Hotel</h3>
+          <p class="hotel-area">Fira 中心 · 平地</p>
+          <dl class="hotel-detail">
+            <dt>位置</dt><dd>Fira 中心平地、走懸崖步道 5 分鐘</dd>
+            <dt>特色</dt><dd>基本乾淨、電梯、含早餐、無石階</dd>
+            <dt>Booking</dt><dd>8.4 到 8.6</dd>
+            <dt>價位</dt><dd class="hotel-price">EUR 100 到 140 / 晚</dd>
+            <dt>適合</dt><dd>Santorini 想控預算、位置優先</dd>
+          </dl>
+          <p class="hotel-note">房間簡單但乾淨、位置好。3 晚 EUR 300 到 420。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stop-block">
+      <div class="stop-block-header">
+        <span class="stop-block-num">STOP 07</span>
+        <h3 class="stop-block-title">Athens Plaka · 收尾</h3>
+        <span class="stop-block-meta">10/12 · 1 晚</span>
+      </div>
+      <p style="color: var(--aegean); font-size: 14px; margin-bottom: 16px;"><strong>建議做法:</strong>跟 Stop 01 開場同一家旅館。訂 Stop 01 時同時 email 詢問旅館能否 <em>hold luggage during trip</em> (旅程中免費寄放行李、我們回來還會再住)、多數旅館可以提供這個服務。回程當晚拿回行李、check-in 動線最順、也免於再找一家新旅館的體力。</p>
+      <p style="color: var(--stone); font-size: 13px; font-style: italic;">如果 Stop 01 訂的旅館 10/12 該日期已滿房、可以就近選 Stop 01 三個選項中沒訂的另一家、或臨近的其他 Plaka 旅館。</p>
+    </div>
+
+  </section>
+
+</div>
+
+</body>
+</html>

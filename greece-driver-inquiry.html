@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 希臘 · 內陸包車詢價</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --whitewash: #F6F4EE;
+    --whitewash-deep: #EEE9D9;
+    --aegean-deep: #14243C;
+    --aegean: #2B3A50;
+    --aegean-light: #5D6D8A;
+    --olive-wood: #7A5A38;
+    --stone: #8A8578;
+    --rule: #D8D2C2;
+    --accent-green: #5D6D5F;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--whitewash);
+    color: var(--aegean-deep);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+  }
+
+  header {
+    margin-bottom: 56px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-weight: 400;
+    font-size: clamp(36px, 6vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--aegean-deep);
+    margin: 0 0 12px;
+  }
+
+  .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--aegean-light);
+    letter-spacing: 0.05em;
+  }
+
+  section {
+    margin-bottom: 56px;
+  }
+
+  h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    margin: 0 0 24px;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--aegean-deep);
+    margin: 0 0 8px;
+    line-height: 1.3;
+  }
+
+  p {
+    margin: 0 0 12px;
+    color: var(--aegean-deep);
+    font-size: 15px;
+  }
+
+  .company-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .company-item {
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .company-item:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .company-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--olive-wood);
+    font-weight: 600;
+    padding-top: 4px;
+  }
+
+  .company-content .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    background: var(--whitewash-deep);
+    padding: 3px 8px;
+    margin-left: 8px;
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+
+  .company-content .badge.priority {
+    background: var(--accent-green);
+    color: var(--whitewash);
+  }
+
+  .company-content p {
+    font-size: 14px;
+    color: var(--aegean);
+    margin-bottom: 6px;
+  }
+
+  .company-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--olive-wood);
+    letter-spacing: 0.02em;
+  }
+
+  .strategy-block {
+    background: var(--whitewash-deep);
+    border-left: 3px solid var(--olive-wood);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+
+  .strategy-block strong {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--aegean-deep);
+  }
+
+  .email-block {
+    background: var(--whitewash-deep);
+    border: 1px solid var(--rule);
+    padding: 28px 32px;
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--aegean-deep);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    position: relative;
+  }
+
+  .email-block .email-subject {
+    font-weight: 600;
+    color: var(--olive-wood);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+    display: block;
+  }
+
+  .email-block .email-section {
+    font-weight: 600;
+    color: var(--aegean-deep);
+    margin-top: 14px;
+    display: block;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--aegean-deep);
+    color: var(--whitewash);
+    border: none;
+    padding: 6px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+
+  .copy-btn:hover {
+    background: var(--aegean);
+  }
+
+  .copy-btn.copied {
+    background: var(--accent-green);
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .checklist li {
+    padding: 10px 0 10px 26px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    font-size: 14px;
+    color: var(--aegean-deep);
+  }
+
+  .checklist li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid var(--olive-wood);
+    border-radius: 2px;
+  }
+
+  .checklist li:last-child {
+    border-bottom: none;
+  }
+
+  .checklist li strong {
+    font-weight: 600;
+    color: var(--aegean-deep);
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    font-size: 13px;
+    vertical-align: top;
+  }
+
+  .compare-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--olive-wood);
+    font-weight: 500;
+  }
+
+  .footnote {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>內陸包車詢價</h1>
+    <div class="subtitle">2026 希臘 · Athens / Arachova / Meteora 三段接駁</div>
+  </header>
+
+  <!-- 公司清單 -->
+  <section>
+    <h2>推薦公司 · Recommended Vendors</h2>
+
+    <ul class="company-list">
+      <li class="company-item">
+        <span class="company-num">01</span>
+        <div class="company-content">
+          <h3>Meteora My Taxi Transfer<span class="badge priority">First Pick</span></h3>
+          <p>TripAdvisor 高評、專做包車轉運。有實際案例是「Athens → Kalambaka 途中經 Daphni、Osios Loukas、Delphi」全程一台車,是你這種<strong>多天連續接駁</strong>最熟悉的模式。</p>
+          <p>優點:多天連續接駁的經驗豐富、司機當地人、路線靈活。</p>
+          <p class="company-url">meteoramytaxitransfer.gr</p>
+        </div>
+      </li>
+
+      <li class="company-item">
+        <span class="company-num">02</span>
+        <div class="company-content">
+          <h3>Visit Meteora Travel<span class="badge">2026 早鳥 10% off</span></h3>
+          <p>2013 年營運、5000+ 五星評價、TripAdvisor Travelers' Choice。專攻 Meteora 相關接駁,司機是當地人。</p>
+          <p>有 2026 早鳥優惠 10% off,適用 1 月到 12 月出發 (4/1-4/12 除外)。你 10 月出發可以拿到折扣。</p>
+          <p class="company-url">visitmeteora.travel</p>
+        </div>
+      </li>
+
+      <li class="company-item">
+        <span class="company-num">03</span>
+        <div class="company-content">
+          <h3>Welcome Pickups</h3>
+          <p>Athens 大品牌、全希臘服務、線上下單快速、有多語言 App。適合喜歡 App 管理的旅客。</p>
+          <p>價位偏高一點但服務標準化,不會踩雷。</p>
+          <p class="company-url">welcomepickups.com</p>
+        </div>
+      </li>
+
+      <li class="company-item">
+        <span class="company-num">04</span>
+        <div class="company-content">
+          <h3>GetYourGuide 平台</h3>
+          <p>上面有很多獨立司機 (例如 Costas、Frois、Kostas),評價都可以查。優點是有<strong>平台保護</strong> (不滿意可退款),可以看到其他旅客的照片跟評語。</p>
+          <p>搜尋關鍵字:「Athens Meteora private transfer」。</p>
+          <p class="company-url">getyourguide.com</p>
+        </div>
+      </li>
+
+      <li class="company-item">
+        <span class="company-num">05</span>
+        <div class="company-content">
+          <h3>Viator 平台</h3>
+          <p>跟 GetYourGuide 類似的平台服務。有「Athens → Meteora 私人車 tour」商品。</p>
+          <p>備選,如果前幾家報價都不理想。</p>
+          <p class="company-url">viator.com</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 策略 -->
+  <section>
+    <h2>詢價策略 · Strategy</h2>
+
+    <div class="strategy-block">
+      <strong>先問 Meteora My Taxi Transfer</strong>
+      因為他們最擅長「多天連續接駁」的模式,你這種 A → B → C → A 三段行程對他們是熟悉的組合。如果報價合理直接訂。
+    </div>
+
+    <div class="strategy-block">
+      <strong>同時問 Visit Meteora Travel</strong>
+      用 2026 早鳥 10% 優惠當備案。如果第一家太貴或不能配合日期,切到這家。
+    </div>
+
+    <div class="strategy-block">
+      <strong>建議寄 3 到 5 家比較</strong>
+      平台跟直營各挑幾家。價差可能 30% 以上。同時可以觀察哪家英文回覆最快最清楚、當作服務品質的第一印象。
+    </div>
+
+    <div class="strategy-block">
+      <strong>先寄出、旅館之後補</strong>
+      如果你的 Athens Plaka 旅館跟 Piraeus 港旅館還沒訂,先用「Plaka area hotel」跟「Piraeus port area hotel」的區域名寄出。之後訂到再回信補充實際地址。這樣不會拖延詢價時機。
+    </div>
+  </section>
+
+  <!-- 詢價信 -->
+  <section>
+    <h2>詢價信 · Inquiry Email (English)</h2>
+
+    <p style="color: var(--aegean-light); font-size: 13px;">複製這封信、寄給上面列的 3 到 5 家。寄出前替換 [Company Name] 跟 [Your Name]。</p>
+
+    <div class="email-block" id="emailContent">
+<button class="copy-btn" onclick="copyEmail()" id="copyBtn">COPY</button><span class="email-subject">Subject: Private Driver Inquiry — 3 Transfers in October 2026 (Athens / Arachova / Meteora)</span>Dear [Company Name],
+
+I am planning a 14-day trip to Greece with my mother in October 2026 and am looking for a reliable private driver for the mainland portion of our journey.
+
+<span class="email-section">Traveler details</span>- 2 adults (mother has moderate mobility — walks fine but avoids strenuous stairs)
+- Luggage: 2 large checked suitcases (23kg each) + 2 carry-ons
+- English-speaking driver preferred
+
+<span class="email-section">Three inter-city transfers needed</span>
+<span class="email-section">1. Oct 2 (Fri) — Athens → Arachova</span>- Pickup: Plaka area hotel, around 08:30
+- Drop-off: Arachova hotel (afternoon)
+- Route via A1/E75
+
+<span class="email-section">2. Oct 4 (Sun) — Arachova → Kalambaka (Meteora)</span>- Pickup: Arachova hotel, around 09:00
+- Drop-off: Kalambaka hotel
+- Route via E65
+
+<span class="email-section">3. Oct 6 (Tue) — Kalambaka → Athens (Piraeus port area)</span>- Pickup: Kalambaka hotel, around 09:00
+- Drop-off: Piraeus port area hotel
+- Preferred stop en route: Thermopylae (300 Spartans monument), ~30 min visit
+- Optional lunch stop
+
+<span class="email-section">Questions</span>1. Total price for all three transfers, with breakdown per segment
+2. Vehicle model (we prefer a comfortable sedan or small SUV, e.g., Mercedes E-Class, Skoda Octavia SUV, or equivalent)
+3. Payment terms (deposit required, balance on the day, accepted payment methods)
+4. Cancellation policy
+5. Can the same driver do all three transfers? We'd prefer consistency.
+
+<span class="email-section">Optional add-on</span>Would you also quote a half-day excursion on Oct 3 (Sat) morning — Arachova → Osios Loukas Monastery round-trip (approx. 30 min each way + 1 hour visit)? This is a separate excursion from the three main transfers.
+
+Please quote in Euros.
+
+Thank you and looking forward to your response.
+
+Best regards,
+[Your Name]</div>
+  </section>
+
+  <!-- 寄出前檢查 -->
+  <section>
+    <h2>寄出前檢查 · Pre-Send Checklist</h2>
+
+    <ul class="checklist">
+      <li>替換 <strong>[Company Name]</strong> 為實際公司名 (每家改一次)</li>
+      <li>替換 <strong>[Your Name]</strong> 為你的名字</li>
+      <li>Athens 旅館訂了就改成實際旅館名 (讓司機直接知道地址)</li>
+      <li>Piraeus 港旅館訂了也一併改</li>
+      <li>如果不打算加 Osios Loukas 一日遊、就刪掉 Optional add-on 那段</li>
+      <li>寄之前檢查一次日期跟時間有沒有打錯</li>
+    </ul>
+  </section>
+
+  <!-- 收到回信後怎麼比較 -->
+  <section>
+    <h2>收到報價後比較 · Compare Quotes</h2>
+
+    <p>除了看總價,也看下面幾點。可以自己填一個比較表:</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>比較項目</th>
+          <th>公司 A</th>
+          <th>公司 B</th>
+          <th>公司 C</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>三段總價 (EUR)</td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr>
+          <td>車型</td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr>
+          <td>司機英文流利度<br><span style="color: var(--stone); font-size: 11px;">(從回信可以判斷)</span></td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr>
+          <td>Osios Loukas 一日遊<br>單獨報價</td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr>
+          <td>Thermopylae 停靠<br>是否加價</td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr>
+          <td>訂金比例</td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr>
+          <td>取消政策</td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr>
+          <td>同一司機三段</td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 底部備註 -->
+  <div class="footnote">
+    <p>市場參考價位:三段合計 EUR 900 到 1,200 一車 (視車型跟停靠景點)。如果報價低於 EUR 800,要確認車型跟司機資歷;高於 EUR 1,300 就明顯偏高、除非有特殊服務。</p>
+    <p>訂金一般 20% 到 30%、餘款當天付現金 (歐元) 或刷卡。取消政策看每家、通常 7 天前免手續費,越接近日期扣越多。</p>
+  </div>
+
+</div>
+
+<script>
+function copyEmail() {
+  const emailContent = document.getElementById('emailContent');
+  const btn = document.getElementById('copyBtn');
+  // 移除按鈕本身的文字,只複製 email 內容
+  const clone = emailContent.cloneNode(true);
+  clone.querySelector('.copy-btn').remove();
+  const text = clone.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'COPIED';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'COPY';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
